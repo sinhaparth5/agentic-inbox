@@ -9,11 +9,17 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
+	"routes": [
+		{
+			"pattern": "mail.astrareconslabs.com",
+			"custom_domain": true
+		}
+	],
 	"vars": {
 		// Production deploys must also define POLICY_AUD and TEAM_DOMAIN.
 		// TEAM_DOMAIN may be the base Access URL or the full /cdn-cgi/access/certs URL.
 		// The worker now fails closed outside local development if Access is not configured.
-		"DOMAINS": "example.com",
+		"DOMAINS": "mail.astrareconslabs.com",
 		"EMAIL_ADDRESSES": []
 	},
 	"send_email": [
@@ -27,6 +33,10 @@
 			"binding": "BUCKET",
 			"bucket_name": "agentic-inbox",
 			"preview_bucket_name": "agentic-inbox"
+		},
+		{
+			"bucket_name": "agentic-inbox",
+			"binding": "agentic_inbox"
 		}
 	],
 	"ai": {
